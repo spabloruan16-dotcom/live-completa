@@ -1,0 +1,158 @@
+.lv-tabs { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+.lv-tab { min-height: 40px; padding: 0 16px; border: 1px solid var(--line); border-radius: 10px; color: var(--muted); background: #fff; font-weight: 700; font-size: 13px; }
+.lv-tab.ativa { color: #fff; background: var(--purple); border-color: var(--purple); }
+
+.lv-filters { display: grid; grid-template-columns: minmax(220px, 1fr) minmax(190px, .45fr) auto; gap: 10px; margin-bottom: 18px; align-items: center; }
+.lv-search, .lv-store-filter { display: flex; align-items: center; gap: 8px; min-height: 42px; padding: 0 12px; border: 1px solid var(--line); border-radius: 11px; background: #fff; color: var(--muted); }
+.lv-search span { font-size: 14px; }
+.lv-search input, .lv-store-filter select { width: 100%; min-width: 0; border: 0; outline: 0; background: transparent; color: var(--ink); font: inherit; font-size: 12px; }
+.lv-store-filter span { flex: 0 0 auto; font-size: 11px; font-weight: 800; }
+.lv-clear-filter { min-height: 42px; padding: 0 13px; border: 1px solid var(--purple); border-radius: 11px; color: var(--purple); background: #fff; font-size: 11px; font-weight: 800; cursor: pointer; }
+.lv-clear-filter:hover { background: #f6f1ff; }
+.lv-watch-unmute { position: absolute; z-index: 4; left: 50%; bottom: 18px; transform: translateX(-50%); min-height: 42px; padding: 0 15px; border: 0; border-radius: 999px; color: #fff; background: rgba(89,38,201,.95); box-shadow: 0 8px 24px rgba(0,0,0,.3); font-size: 12px; font-weight: 800; cursor: pointer; }
+
+.lv-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+.lv-grid[hidden] { display: none; }
+
+.lv-card { overflow: hidden; border: 1px solid var(--line); border-radius: 16px; background: var(--surface); box-shadow: 0 8px 24px rgba(43, 26, 87, .06); cursor: pointer; text-align: left; padding: 0; }
+.lv-card:focus-visible { outline: 3px solid rgba(89,38,201,.3); outline-offset: 2px; }
+.lv-card-thumb { position: relative; width: 100%; aspect-ratio: 4 / 3; background: linear-gradient(135deg, #2c164f, #7c37d8); overflow: hidden; }
+.lv-card-thumb img, .lv-card-thumb video { display: block; width: 100%; height: 100%; object-fit: cover; }
+.lv-card-badge { position: absolute; z-index: 2; top: 10px; left: 10px; padding: 5px 9px; border-radius: 7px; color: #fff; font-size: 10px; font-weight: 800; background: #ff3e5b; }
+.lv-card-badge.lv-badge-video { background: #ee4d2d; }
+.lv-card-viewers { position: absolute; z-index: 2; bottom: 10px; right: 10px; padding: 4px 8px; border-radius: 999px; color: #fff; font-size: 10px; font-weight: 700; background: rgba(0,0,0,.5); }
+.lv-card-play { position: absolute; inset: 0; display: grid; place-items: center; font-size: 34px; color: #fff; opacity: .85; }
+.lv-card-body { padding: 14px; }
+.lv-card-body strong { display: block; margin-bottom: 4px; font-size: 15px; }
+.lv-card-body .store-name { margin: 0 0 6px; }
+.lv-card-body p { margin: 0; color: var(--muted); font-size: 12px; line-height: 1.5; }
+
+.lv-watch-modal { position: fixed; z-index: 40; inset: 0; display: grid; place-items: center; padding: 18px; background: rgba(20,10,40,.75); }
+.lv-watch-modal[hidden] { display: none; }
+.lv-watch-dialog { position: relative; width: min(520px, 100%); max-height: calc(100vh - 36px); overflow-y: auto; border-radius: 18px; background: #000; box-shadow: 0 20px 60px rgba(0,0,0,.4); }
+.lv-watch-dialog .cart-close { position: absolute; z-index: 5; top: 10px; right: 12px; color: #fff; text-shadow: 0 1px 4px rgba(0,0,0,.6); }
+.lv-watch-video-wrap { position: relative; width: 100%; aspect-ratio: 9 / 16; max-height: 70vh; background: #000; }
+.lv-watch-video-wrap video { display: block; width: 100%; height: 100%; object-fit: contain; background: #000; }
+.lv-watch-status { position: absolute; inset: 0; display: grid; place-items: center; padding: 20px; color: #fff; font-size: 13px; text-align: center; background: rgba(0,0,0,.35); }
+.lv-watch-status[hidden] { display: none; }
+.lv-watch-info { padding: 16px 18px 20px; color: #fff; background: #16102b; }
+.lv-watch-info h2 { margin: 6px 0 4px; font: 700 18px "Space Grotesk", sans-serif; }
+.lv-watch-info p { margin: 0 0 4px; color: #cfc6e6; font-size: 13px; }
+.lv-badge-live { display: inline-block; padding: 4px 9px; border-radius: 999px; color: #fff; background: #ff3e5b; font-size: 10px; font-weight: 800; letter-spacing: .04em; }
+
+@media (max-width: 720px) {
+    .lv-filters { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 620px) {
+    .lv-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+    .lv-card-body { padding: 10px; }
+    .lv-card-body strong { font-size: 13px; }
+}
+
+
+.lv-social-panel { margin-top: 16px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.12); }
+.lv-social-panel h3 { margin: 0 0 10px; font-size: 14px; }
+.lv-chat-list { max-height: 210px; overflow-y: auto; display: grid; gap: 7px; padding: 4px 0; }
+.lv-chat-msg, .lv-comment { display: grid; gap: 2px; padding: 8px 10px; border-radius: 10px; background: rgba(255,255,255,.07); font-size: 12px; }
+.lv-chat-msg strong, .lv-comment strong { font-size: 11px; color: #fff; }
+.lv-chat-msg span, .lv-comment span { color: #d9d2e8; line-height: 1.4; word-break: break-word; }
+.lv-chat-compose { display:flex; gap:8px; margin-top:9px; }
+.lv-chat-compose input { min-width:0; flex:1; min-height:40px; border:1px solid rgba(255,255,255,.18); border-radius:10px; padding:0 10px; background:rgba(255,255,255,.08); color:#fff; outline:none; }
+.lv-chat-compose button, .lv-live-actions button, .lv-publication-actions button { min-height:40px; border:0; border-radius:10px; padding:0 12px; font-weight:800; cursor:pointer; }
+.lv-chat-compose button { background:#fff; color:#351568; }
+.lv-live-actions { margin:12px 0; }
+.lv-live-actions button { background:#6f39d7; color:#fff; }
+.lv-live-actions button:disabled { opacity:.65; cursor:default; }
+.lv-publication-actions { display:flex; gap:8px; margin:12px 0; flex-wrap:wrap; }
+.lv-publication-actions button { background:#fff; color:#351568; }
+.lv-empty-social { color:#bfb5d0; font-size:12px; padding:10px 0; }
+.lv-card-social { display:flex; gap:10px; margin-top:10px; color:#6d5b86; font-size:11px; font-weight:700; }
+
+/* ================================================================
+   FEED VERTICAL — EXPERIÊNCIA SOCIAL (TikTok / Reels)
+================================================================ */
+.lv-reels-page { padding-bottom: 24px; }
+.lv-reels-topbar { position: sticky; top: 0; z-index: 12; padding: 10px 0 12px; background: rgba(248,247,251,.94); backdrop-filter: blur(14px); }
+.lv-reels-topbar .lv-tabs { margin: 0 0 10px; justify-content: center; }
+.lv-reels-topbar .lv-tab { border-radius: 999px; min-height: 36px; padding: 0 14px; }
+.lv-reels-search { display: grid; grid-template-columns: minmax(180px, 1fr) 210px auto; gap: 8px; max-width: 720px; margin: 0 auto; }
+.lv-reels-search .lv-search, .lv-reels-search .lv-store-filter { min-height: 38px; border-radius: 999px; }
+.lv-reels-search .lv-clear-filter { min-height: 38px; border-radius: 999px; }
+.lv-reels-feed { width: min(100%, 620px); height: min(76vh, 760px); min-height: 560px; margin: 8px auto 0; overflow-y: auto; scroll-snap-type: y mandatory; overscroll-behavior-y: contain; scrollbar-width: thin; border-radius: 22px; background: #0b0910; }
+.lv-reel { position: relative; width: 100%; height: 100%; min-height: 560px; scroll-snap-align: start; scroll-snap-stop: always; overflow: hidden; background: #09070d; color: #fff; }
+.lv-reel-media { position: absolute; inset: 0; overflow: hidden; background: #0b0910; cursor: pointer; }
+.lv-reel-video { display: block; width: 100%; height: 100%; object-fit: cover; background: #0b0910; }
+.lv-reel-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.48), transparent 25%, transparent 48%, rgba(0,0,0,.86) 100%); pointer-events: none; }
+.lv-reel-top { position: absolute; z-index: 3; top: 16px; left: 16px; right: 16px; display: flex; align-items: center; justify-content: space-between; gap: 8px; pointer-events: none; }
+.lv-reel-live-pill, .lv-reel-video-pill, .lv-reel-viewers { padding: 7px 10px; border-radius: 999px; font-size: 10px; font-weight: 900; letter-spacing: .04em; background: rgba(0,0,0,.56); backdrop-filter: blur(8px); }
+.lv-reel-live-pill { background: rgba(255,44,81,.94); }
+.lv-reel-open { position: absolute; z-index: 5; left: 50%; top: 50%; transform: translate(-50%,-50%); border: 0; border-radius: 999px; padding: 12px 18px; color: #fff; background: rgba(24,13,38,.74); backdrop-filter: blur(10px); font-weight: 900; cursor: pointer; opacity: 0; transition: opacity .2s, transform .2s; }
+.lv-reel-media:hover .lv-reel-open, .lv-reel-media:focus-within .lv-reel-open { opacity: 1; }
+.lv-reel-play { position: absolute; z-index: 6; left: 16px; bottom: 18px; width: 42px; height: 42px; border: 0; border-radius: 50%; color: #fff; background: rgba(0,0,0,.48); cursor: pointer; font-weight: 900; }
+.lv-reel-live-placeholder { position: absolute; inset: 0; display: grid; place-content: center; justify-items: center; gap: 10px; background: radial-gradient(circle at 50% 38%, #432060, #100a17 68%); text-align: center; }
+.lv-reel-live-placeholder strong { font-size: 26px; letter-spacing: .08em; }
+.lv-reel-live-placeholder span { color: #d8cde6; font-size: 13px; }
+.lv-live-orb { width: 74px; height: 74px; display: grid; place-items: center; border-radius: 50%; background: rgba(255,255,255,.1); box-shadow: 0 0 0 14px rgba(255,255,255,.04); font-size: 30px; }
+.lv-reel-actions { position: absolute; z-index: 8; right: 14px; bottom: 118px; display: grid; gap: 12px; justify-items: center; }
+.lv-reel-action { width: 52px; min-height: 52px; display: grid; place-items: center; gap: 1px; border: 0; border-radius: 999px; color: #fff; background: rgba(0,0,0,.42); backdrop-filter: blur(10px); cursor: pointer; }
+.lv-reel-action span { font-size: 23px; line-height: 1; }
+.lv-reel-action b { font-size: 9px; line-height: 1; }
+.lv-reel-action:hover, .lv-reel-action.ativo { background: rgba(111,57,215,.88); transform: scale(1.04); }
+.lv-reel-caption { position: absolute; z-index: 7; left: 18px; right: 86px; bottom: 18px; text-align: left; }
+.lv-reel-store { display: flex; align-items: center; gap: 9px; margin-bottom: 9px; }
+.lv-avatar { width: 38px; height: 38px; flex: 0 0 38px; display: grid; place-items: center; border-radius: 50%; background: #fff; color: #4b1b91; font-weight: 900; }
+.lv-reel-store strong, .lv-reel-store small { display: block; }
+.lv-reel-store strong { font-size: 14px; }
+.lv-reel-store small { margin-top: 2px; color: #ddd4e9; font-size: 10px; }
+.lv-reel-caption h2 { margin: 0 0 5px; font-size: 17px; line-height: 1.2; }
+.lv-reel-caption p { max-width: 480px; margin: 0 0 7px; color: #eee8f4; font-size: 12px; line-height: 1.45; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.lv-reel-hint { color: #cfc3dc; font-size: 10px; }
+.lv-reels-empty { min-height: 560px; display: grid; place-content: center; justify-items: center; gap: 8px; padding: 32px; color: #fff; text-align: center; background: #100b18; border-radius: 22px; }
+.lv-reels-empty strong { font-size: 20px; }
+.lv-reels-empty span { max-width: 360px; color: #c9bfd2; font-size: 12px; line-height: 1.5; }
+
+@media (max-width: 720px) {
+    .lv-reels-topbar { margin-inline: -4px; }
+    .lv-reels-search { grid-template-columns: 1fr; }
+    .lv-reels-search .lv-clear-filter { width: 100%; }
+    .lv-reels-feed { width: min(100%, 520px); height: calc(100vh - 215px); min-height: 520px; border-radius: 18px; }
+    .lv-reel { min-height: 520px; }
+}
+@media (max-width: 480px) {
+    .lv-reels-page { padding-inline: 0; }
+    .lv-reels-topbar { padding-inline: 8px; }
+    .lv-reels-topbar .lv-tabs { overflow-x: auto; justify-content: flex-start; flex-wrap: nowrap; scrollbar-width: none; }
+    .lv-reels-topbar .lv-tab { flex: 0 0 auto; }
+    .lv-reels-feed { height: calc(100vh - 250px); min-height: 480px; margin-top: 4px; border-radius: 0; }
+    .lv-reel { min-height: 480px; }
+    .lv-reel-actions { right: 10px; bottom: 108px; gap: 9px; }
+    .lv-reel-action { width: 48px; min-height: 48px; }
+    .lv-reel-caption { left: 14px; right: 72px; bottom: 14px; }
+    .lv-reel-caption h2 { font-size: 15px; }
+}
+
+
+/* ================================================================
+   LIVE PLAYER — SCROLL LOCK + MINI PLAYER + PICTURE-IN-PICTURE
+================================================================ */
+html.lv-live-open, body.lv-live-open { overflow: hidden !important; overscroll-behavior: none !important; }
+body.lv-live-open { position: fixed; width: 100%; }
+.lv-watch-modal { overscroll-behavior: contain; touch-action: pan-y; }
+.lv-watch-dialog { overscroll-behavior: contain; touch-action: pan-y; }
+.lv-watch-video-wrap { isolation: isolate; }
+.lv-watch-video-tools { position:absolute; z-index:12; top:10px; left:12px; display:flex; gap:7px; }
+.lv-watch-video-tools button { min-height:34px; padding:0 10px; border:1px solid rgba(255,255,255,.22); border-radius:999px; color:#fff; background:rgba(0,0,0,.52); backdrop-filter:blur(10px); font-weight:800; cursor:pointer; }
+.lv-watch-video-tools button:hover, .lv-watch-video-tools button.ativo { background:rgba(111,57,215,.92); }
+.lv-mini-player { position:fixed; z-index:120; right:16px; bottom:88px; width:min(300px, calc(100vw - 24px)); overflow:hidden; border:1px solid rgba(255,255,255,.16); border-radius:18px; background:#08060b; box-shadow:0 20px 60px rgba(0,0,0,.45); }
+.lv-mini-player[hidden] { display:none; }
+.lv-mini-head { height:38px; display:flex; align-items:center; justify-content:space-between; padding:0 10px; color:#fff; background:rgba(20,12,30,.96); font-size:11px; font-weight:900; }
+.lv-mini-head button { width:28px; height:28px; border:0; border-radius:50%; color:#fff; background:rgba(255,255,255,.1); cursor:pointer; font-size:18px; }
+.lv-mini-video-slot { aspect-ratio:9/16; max-height:48vh; background:#000; }
+.lv-mini-video-slot video { display:block; width:100%; height:100%; object-fit:contain; background:#000; }
+.lv-mini-player > #liveMiniRestore { width:100%; min-height:38px; border:0; color:#fff; background:#6f39d7; font-weight:900; cursor:pointer; }
+@media (max-width: 620px) {
+    .lv-watch-video-tools { top:8px; left:8px; }
+    .lv-watch-video-tools button { min-height:32px; padding:0 8px; font-size:11px; }
+    .lv-mini-player { right:10px; bottom:82px; width:min(250px, calc(100vw - 20px)); }
+}
