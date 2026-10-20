@@ -1,12 +1,17 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<script>if (!/[?&](login|register|area)=/.test(location.search)) location.replace("Cliente/pages/cliente.html");</script>
+<script>/* Tela de abertura da marca: depois da animação, segue para o catálogo público. */ history.replaceState(null, "", location.pathname); window.setTimeout(() => location.replace("Cliente/pages/cliente.html"), 3000);</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="theme-color" content="#5520b8">
 <title>Moda Center Santa Cruz</title>
 <link rel="stylesheet" href="CSS-GLOBAL/global.css">
+<style>
+/* A página inicial é apenas uma abertura visual; autenticação fica no perfil. */
+.actions, #authBackdrop { display: none !important; }
+.nav-item { cursor: default; }
+</style>
 </head>
 <body>
 <!-- Container principal da página inicial e do modal de autenticação. -->
